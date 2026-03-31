@@ -8,7 +8,7 @@ npx cypress open
 
 # Automacao E2E - Sauce Demo (Cypress + TypeScript)
 
-Projeto de testes end-to-end com **Cypress** e **TypeScript** para o site de demonstracao (https://www.saucedemo.com), cobrindo fluxos criticos de autenticacao, inventario, carrinho e checkout.
+Projeto de testes end-to-end com **Cypress** e **TypeScript** para o site de demonstração (https://www.saucedemo.com), cobrindo fluxos criticos de autenticacao, inventario, carrinho e checkout.
 
 ---
 
