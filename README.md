@@ -12,7 +12,7 @@ Projeto de testes end-to-end com **Cypress** e **TypeScript** para o site de dem
 
 ---
 
-## Sumario
+## Sumário
 
 - [Pré-requisitos](#pre-requisitos)
 - [Instalação do ambiente (Node.js, npm, Cypress e TypeScript)](#instalacao-do-ambiente-nodejs-npm-cypress-e-typescript)
