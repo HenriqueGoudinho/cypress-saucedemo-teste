@@ -14,15 +14,14 @@ Projeto de testes end-to-end com **Cypress** e **TypeScript** para o site de dem
 
 ## Sumario
 
-- [Pre-requisitos](#pre-requisitos)
-- [Instalacao do ambiente (Node.js, npm, Cypress e TypeScript)](#instalacao-do-ambiente-nodejs-npm-cypress-e-typescript)
+- [Pré-requisitos](#pre-requisitos)
+- [Instalação do ambiente (Node.js, npm, Cypress e TypeScript)](#instalacao-do-ambiente-nodejs-npm-cypress-e-typescript)
 - [Como clonar e instalar o projeto](#como-clonar-e-instalar-o-projeto)
 - [Como executar os testes](#como-executar-os-testes)
 - [Estrutura do projeto](#estrutura-do-projeto)
-- [Cenarios cobertos](#cenarios-cobertos)
-- [Arquitetura e decisoes tecnicas](#arquitetura-e-decisoes-tecnicas)
-- [Estrategia de testes](#estrategia-de-testes)
-- [Pontos de melhoria futuros](#pontos-de-melhoria-futuros)
+- [Cenários cobertos](#cenarios-cobertos)
+- [Arquitetura e decisões técnicas](#arquitetura-e-decisoes-tecnicas)
+- [Estratégia de testes](#estrategia-de-testes)
 
 ---
 
