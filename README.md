@@ -45,9 +45,9 @@ O Node.js e o ambiente necessário para rodar o Cypress e o npm na sua maquina.
 1. Acesse o site oficial: **[https://nodejs.org/](https://nodejs.org/)**
 2. Baixe o instalador **LTS** (Long Term Support), recomendado para a maioria dos projetos.
 3. Execute o instalador e siga as etapas (em Windows, marcar a opcao que adiciona o Node ao 'PATH' facilita o uso no terminal).
-4. **Reabra** o terminal (ou o VS Code / Cursor) apos a instalação.
+4. **Reabra** o terminal (ou o VS Code) após a instalação.
 
-**Conferir se deu certo** (deve aparecer numeros de versao, sem erro):
+**Conferir se deu certo** (deve aparecer números de versão, sem erro):
 
 ```bash
 node -v
