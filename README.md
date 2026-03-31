@@ -140,7 +140,7 @@ npx cypress run --spec "cypress/e2e/login.cy.ts,cypress/e2e/checkout.cy.ts"
 
 ---
 
-## Cenarios cobertos
+## Cenários cobertos
 
 | Arquivo | O que valida |
 |---------|----------------|
@@ -153,7 +153,7 @@ npx cypress run --spec "cypress/e2e/login.cy.ts,cypress/e2e/checkout.cy.ts"
 | `carrinho-remover-item.cy.ts` | Adicionar e remover item; badge do carrinho. |
 | `checkout-campos-obrigatorios.cy.ts` | Validacao de campos obrigatorios no checkout. |
 
-## Arquitetura e decisoes tecnicas
+## Arquitetura e decisões técnicas
 
 - **Cypress + TypeScript:** tipagem e melhor manutencao conforme a suite cresce.
 
@@ -165,7 +165,7 @@ npx cypress run --spec "cypress/e2e/login.cy.ts,cypress/e2e/checkout.cy.ts"
 
 ---
 
-## Estrategia de testes
+## Estratégia de testes
 
 - Testes independentes e isolados
 - Validação de comportamento (URL + elementos da tela)
@@ -173,7 +173,7 @@ npx cypress run --spec "cypress/e2e/login.cy.ts,cypress/e2e/checkout.cy.ts"
 
 ---
 
-## Licenca
+## Licença
 
 Este repositorio e um projeto de estudo / desafio tecnico. Ajuste a licenca conforme sua necessidade.
 
