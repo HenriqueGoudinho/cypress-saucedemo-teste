@@ -26,7 +26,7 @@ Projeto de testes end-to-end com **Cypress** e **TypeScript** para o site de dem
 
 ---
 
-## Pre-requisitos
+## Pré-requisitos
 
 | Ferramenta | Uso |
 |------------|-----|
