@@ -6,9 +6,9 @@ cd <repo>
 npm install
 npx cypress open
 
-# Automacao E2E - Sauce Demo (Cypress + TypeScript)
+# Automação E2E - Sauce Demo (Cypress + TypeScript)
 
-Projeto de testes end-to-end com **Cypress** e **TypeScript** para o site de demonstração (https://www.saucedemo.com), cobrindo fluxos criticos de autenticacao, inventario, carrinho e checkout.
+Projeto de testes end-to-end com **Cypress** e **TypeScript** para o site de demonstração (https://www.saucedemo.com), cobrindo fluxos criticos de autenticação, inventario, carrinho e checkout.
 
 ---
 
@@ -60,7 +60,7 @@ npm -v
 |--------|--------|-------------------------------|
 | **Cypress** | Framework de testes E2E | Listado em 'devDependencies' no 'package.json'; instalado com 'npm install' na pasta do projeto (nao exige `npm install -g cypress` para rodar este repo). |
 | **TypeScript** | Linguagem dos arquivos '*.ts' e suporte a tipagem | Tambem em 'devDependencies'; o Cypress usa TypeScript nos testes conforme 'tsconfig.json'. |
-| **@types/node** | Tipos do Node para o TypeScript | Instalado junto com as dependencias do projeto. |
+| **@types/node** | Tipos do Node para o TypeScript | Instalado junto com as dependências do projeto. |
 
 Ou seja: **apos clonar o repositorio**, o passo que realmente instala Cypress e TypeScript e o **`npm install` na raiz do projeto** (veja a secao seguinte).
 
@@ -76,13 +76,13 @@ npx cypress verify
 npx cypress --version
 ```
 
-- `npx` executa o Cypress que foi instalado em `node_modules`, sem precisar instalacao global.
+- `npx` executa o Cypress que foi instalado em `node_modules`, sem precisar instalação global.
 
-### 4. Resumo rapido
+### 4. Resumo rápido
 
 1. Instalar **Node.js LTS** em [nodejs.org](https://nodejs.org/) (npm vem junto).
 2. Clonar o repositorio e entrar na pasta do projeto.
-3. Rodar **`npm install`** — isso instala **Cypress**, **TypeScript** e o restante das dependencias listadas no `package.json`.
+3. Rodar **`npm install`** — isso instala **Cypress**, **TypeScript** e o restante das dependências listadas no `package.json`.
 
 ---
 
@@ -94,7 +94,7 @@ cd <PASTA_DO_PROJETO>
 npm install
 ```
 
-O comando `npm install` le o `package.json` e baixa tudo para `node_modules`, incluindo Cypress e TypeScript nas versoes definidas no projeto.
+O comando `npm install` le o `package.json` e baixa tudo para `node_modules`, incluindo Cypress e TypeScript nas versões definidas no projeto.
 
 ---
 
@@ -102,7 +102,7 @@ O comando `npm install` le o `package.json` e baixa tudo para `node_modules`, in
 
 | Comando | Descricao |
 |---------|-----------|
-| `npm run cy:run` | Executa todos os testes em modo **headless** (terminal, sem interface grafica). |
+| `npm run cy:run` | Executa todos os testes em modo **headless** (terminal, sem interface gráfica). |
 | `npm run cy:open` | Abre o **Cypress Test Runner** para escolher o navegador e rodar os specs na interface. |
 | `npm test` | Alias para `cypress run` (mesmo efeito que `cy:run` neste projeto). |
 
@@ -131,7 +131,7 @@ npx cypress run --spec "cypress/e2e/login.cy.ts,cypress/e2e/checkout.cy.ts"
 │       ├── commands.ts      # - Uso de Custom Commands para abstração de ações repetitivas (ex: login)     
 │       ├── e2e.ts           # Carregado antes dos testes
 │       └── index.d.ts       # Tipagem TypeScript dos comandos
-├── cypress.config.ts        # Configuracao do Cypress (baseUrl, etc.)
+├── cypress.config.ts        # configuração do Cypress (baseUrl, etc.)
 ├── package.json
 ├── tsconfig.json
 └── README.md
@@ -145,20 +145,20 @@ npx cypress run --spec "cypress/e2e/login.cy.ts,cypress/e2e/checkout.cy.ts"
 |---------|----------------|
 | `login.cy.ts` | Login com usuario valido e acesso ao inventario. |
 | `login-invalido.cy.ts` | Credenciais incorretas e mensagem de erro. |
-| `usuario_invalido.cy.ts` | Variacao de usuarios invalidos (data-driven). |
+| `usuario_invalido.cy.ts` | Variação de usuários inválidos (data-driven). |
 | `checkout.cy.ts` | Adicionar item, carrinho e finalizar pedido. |
-| `compraProdutoCompleto.cy.ts` | Ordenacao por preco, multiplos produtos, total e conclusao. |
+| `compraProdutoCompleto.cy.ts` | Ordenação por preço, múltiplos produtos, total e conclusão. |
 | `logout.cy.ts` | Logout e retorno a tela de login. |
 | `carrinho-remover-item.cy.ts` | Adicionar e remover item; badge do carrinho. |
-| `checkout-campos-obrigatorios.cy.ts` | Validacao de campos obrigatorios no checkout. |
+| `checkout-campos-obrigatorios.cy.ts` | Validação de campos obrigatorios no checkout. |
 
 ## Arquitetura e decisões técnicas
 
-- **Cypress + TypeScript:** tipagem e melhor manutencao conforme a suite cresce.
+- **Cypress + TypeScript:** tipagem e melhor manutenção conforme a suite cresce.
 
 - **`baseUrl` em `cypress.config.ts`:** URL base `https://www.saucedemo.com`, evitando repetir URL completa em cada `cy.visit('/')`.
 
-- **Comando 'cy.login' em 'support/commands.ts':** centraliza o fluxo de login (visitar pagina, preencher campos, submeter), reduzindo duplicacao nos specs.
+- **Comando 'cy.login' em 'support/commands.ts':** centraliza o fluxo de login (visitar pagina, preencher campos, submeter), reduzindo duplicação nos specs.
 
 - **Seletores:** prioridade a atributos `data-test` quando existem no Sauce Demo, para testes menos acoplados a classes CSS puras.
 
@@ -174,7 +174,7 @@ npx cypress run --spec "cypress/e2e/login.cy.ts,cypress/e2e/checkout.cy.ts"
 
 ## Licença
 
-Este repositorio e um projeto de estudo / desafio tecnico. Ajuste a licenca conforme sua necessidade.
+Este repositorio e um projeto de estudo / desafio técnico.
 
 ---
 
