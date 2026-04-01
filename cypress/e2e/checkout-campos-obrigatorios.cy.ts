@@ -7,8 +7,6 @@ describe('Checkout - campos obrigatorios', () => {
     cy.get('[data-test="checkout"]').click();
     cy.get('[data-test="continue"]').click();
 
-    cy.get('[data-test="error"]')
-      .should('be.visible')
-      .and('contain.text', 'First Name is required');
+    cy.get('[data-test="error"]').should('be.visible').and('contain.text', 'First Name is required');
   });
 });

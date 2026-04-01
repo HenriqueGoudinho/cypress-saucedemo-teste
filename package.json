@@ -1,15 +1,14 @@
 {
-  "name": "test_trier",
+  "name": "cypress-saucedemo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Testes E2E do Sauce Demo com Cypress e TypeScript",
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test": "cypress run"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["cypress", "e2e", "typescript", "saucedemo"],
+  "author": "Henrique Goudinho da Silva",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {

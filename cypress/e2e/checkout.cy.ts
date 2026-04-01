@@ -1,4 +1,4 @@
-describe('Checkout', () => {
+describe('Checkout — fluxo simples', () => {
   it('Adiciona um item ao carrinho e finaliza o pedido', () => {
     cy.login('standard_user', 'secret_sauce');
 
@@ -6,7 +6,8 @@ describe('Checkout', () => {
     cy.get('[data-test="shopping-cart-badge"]').should('have.text', '1');
 
     cy.get('[data-test="shopping-cart-link"]').click();
-    cy.get('.cart_item').should('have.length.greaterThan', 0);
+    cy.get('[data-test="cart-list"]').should('be.visible');
+    cy.get('[data-test^="remove-"]').should('have.length', 1);
 
     cy.get('[data-test="checkout"]').click();
 

@@ -1,14 +1,17 @@
-## ▶️ Quick Start
+# Automação E2E — Sauce Demo (Cypress + TypeScript)
 
-bash
-git clone <URL>
-cd <repo>
+Projeto de testes end-to-end com **Cypress** e **TypeScript** para o site de demonstração [saucedemo.com](https://www.saucedemo.com), cobrindo fluxos críticos de autenticação, inventário, carrinho e checkout. Atende ao desafio técnico (Cypress + TypeScript, README com instalação, arquitetura, estratégia, decisões e melhorias futuras).
+
+## Início rápido
+
+```bash
+git clone <URL_DO_REPOSITORIO_PUBLICO>
+cd <PASTA_DO_PROJETO>
 npm install
-npx cypress open
+npm run cy:open
+```
 
-# Automação E2E - Sauce Demo (Cypress + TypeScript)
-
-Projeto de testes end-to-end com **Cypress** e **TypeScript** para o site de demonstração (https://www.saucedemo.com), cobrindo fluxos criticos de autenticação, inventario, carrinho e checkout.
+Para rodar tudo em headless: `npm run cy:run` ou `npm test`.
 
 ---
 
@@ -22,6 +25,7 @@ Projeto de testes end-to-end com **Cypress** e **TypeScript** para o site de dem
 - [Cenários cobertos](#cenarios-cobertos)
 - [Arquitetura e decisões técnicas](#arquitetura-e-decisoes-tecnicas)
 - [Estratégia de testes](#estrategia-de-testes)
+- [Implementação futura e melhorias](#implementacao-futura-e-melhorias)
 
 ---
 
@@ -81,7 +85,7 @@ npx cypress --version
 ### 4. Resumo rápido
 
 1. Instalar **Node.js LTS** em [nodejs.org](https://nodejs.org/) (npm vem junto).
-2. Clonar o repositorio e entrar na pasta do projeto.
+2. Clonar o repositório e entrar na pasta do projeto.
 3. Rodar **`npm install`** — isso instala **Cypress**, **TypeScript** e o restante das dependências listadas no `package.json`.
 
 ---
@@ -104,6 +108,7 @@ O comando `npm install` le o `package.json` e baixa tudo para `node_modules`, in
 |---------|-----------|
 | `npm run cy:run` | Executa todos os testes em modo **headless** (terminal, sem interface gráfica). |
 | `npm run cy:open` | Abre o **Cypress Test Runner** para escolher o navegador e rodar os specs na interface. |
+| `npx cypress open` | Abre o **Cypress Test Runner** para escolher o navegador e rodar os specs na interface. |
 | `npm test` | Alias para `cypress run` (mesmo efeito que `cy:run` neste projeto). |
 
 Executar **um arquivo** especifico:
@@ -145,18 +150,18 @@ npx cypress run --spec "cypress/e2e/login.cy.ts,cypress/e2e/checkout.cy.ts"
 |---------|----------------|
 | `login.cy.ts` | Login com usuario valido e acesso ao inventario. |
 | `login-invalido.cy.ts` | Credenciais incorretas e mensagem de erro. |
-| `usuario_invalido.cy.ts` | Variação de usuários inválidos (data-driven). |
-| `checkout.cy.ts` | Adicionar item, carrinho e finalizar pedido. |
-| `compraProdutoCompleto.cy.ts` | Ordenação por preço, múltiplos produtos, total e conclusão. |
+| `usuario_invalido.cy.ts` | Login inválido em cenários data-driven (usuário vazio, string arbitrária, `locked_out_user`). |
+| `checkout.cy.ts` | Um item no carrinho (`cart-list`, botão `remove-*`) e finalização do pedido. |
+| `compraProdutoCompleto.cy.ts` | Ordenação por preço (validação por `inventory-item` + nome), três produtos, total e conclusão. |
 | `logout.cy.ts` | Logout e retorno a tela de login. |
 | `carrinho-remover-item.cy.ts` | Adicionar e remover item; badge do carrinho. |
-| `checkout-campos-obrigatorios.cy.ts` | Validação de campos obrigatorios no checkout. |
+| `checkout-campos-obrigatorios.cy.ts` | Validação de campos obrigatórios no checkout. |
 
 ## Arquitetura e decisões técnicas
 
 - **Cypress + TypeScript:** tipagem e melhor manutenção conforme a suite cresce.
 
-- **`baseUrl` em `cypress.config.ts`:** URL base `https://www.saucedemo.com`, evitando repetir URL completa em cada `cy.visit('/')`.
+- **`cypress.config.ts`:** `baseUrl` apontando para `https://www.saucedemo.com` e `allowCypressEnv: false`, alinhado à recomendação do Cypress 15 (evitar `Cypress.env()` no navegador e o aviso de migração).
 
 - **Comando 'cy.login' em 'support/commands.ts':** centraliza o fluxo de login (visitar pagina, preencher campos, submeter), reduzindo duplicação nos specs.
 
@@ -166,10 +171,22 @@ npx cypress run --spec "cypress/e2e/login.cy.ts,cypress/e2e/checkout.cy.ts"
 
 ## Estratégia de testes
 
-- Testes independentes e isolados
-- Validação de comportamento (URL + elementos da tela)
-- Uso de seletores estáveis (data-test)
+- Testes independentes e isolados: cada spec pode rodar sozinho sem depender da ordem de execução.
+- Validação de comportamento pela combinação de URL, texto visível e presença de elementos com `data-test`.
+- Dados de entrada repetidos concentrados no comando `cy.login` e, onde faz sentido, em listas no próprio spec (data-driven).
+- Prioridade a seletores estáveis (`data-test`) para reduzir acoplamento a CSS e facilitar manutenção.
 
+---
+
+## Implementação futura e melhorias
+
+Melhorias que fariam sentido com mais tempo ou em um ambiente de produto real (além do escopo mínimo do desafio):
+
+| Área | Ideia |
+|------|--------|
+| **Modelo de página (Page Objects / camadas)** | Extrair seletores e ações para classes ou módulos (`LoginPage`, `InventoryPage`, `CartPage`) para specs mais legíveis e menos duplicação em fluxos longos. |
+| **Fixtures e credenciais** | Mover usuários e senhas para `cypress/fixtures` ou variáveis de ambiente (`Cypress.env`), evitando strings espalhadas e facilitando troca por ambientes. |
+| **Cobertura de fluxos** | Testes dedicados aos demais usuários oficiais do demo (`problem_user`, `performance_glitch_user`, etc.) validando comportamentos específicos (não “erro de login”, mas bugs visuais ou de performance). |
 ---
 
 ## Licença
