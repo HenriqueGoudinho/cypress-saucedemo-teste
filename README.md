@@ -43,7 +43,7 @@ Não é obrigatorio instalar Cypress ou TypeScript “na mão” no sistema oper
 
 ## Versões de referência das ferramentas
 
-Valores abaixo são **exemplos** do ambiente em que a suite foi validada e das versões declaradas no `package.json`. em caso de dúvida, use **Node.js LTS** e rode `npm install` na raiz do projeto. Versões exatas instaladas localmente ficam no `package-lock.json`.
+Valores abaixo são **exemplos** do ambiente em que a suite foi validada e das versões declaradas no `package.json`. Em caso de dúvida, use **Node.js LTS** e rode `npm install` na raiz do projeto. Versões exatas instaladas localmente ficam no `package-lock.json`.
 
 | Ferramenta | Versão de referência |
 |------------|----------------------|
