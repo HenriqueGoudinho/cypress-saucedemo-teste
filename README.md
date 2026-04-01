@@ -18,6 +18,7 @@ Para rodar tudo em headless: `npm run cy:run` ou `npm test`.
 ## Sumário
 
 - [Pré-requisitos](#pre-requisitos)
+- [Versões de referência das ferramentas](#versoes-de-referencia-das-ferramentas)
 - [Instalação do ambiente (Node.js, npm, Cypress e TypeScript)](#instalacao-do-ambiente-nodejs-npm-cypress-e-typescript)
 - [Como clonar e instalar o projeto](#como-clonar-e-instalar-o-projeto)
 - [Como executar os testes](#como-executar-os-testes)
@@ -37,6 +38,33 @@ Para rodar tudo em headless: `npm run cy:run` ou `npm test`.
 | **npm** | Vem junto com o Node.js; instala **Cypress**, **TypeScript** e demais dependências do projeto |
 
 Não é obrigatorio instalar Cypress ou TypeScript “na mão” no sistema operacional: este repositório ja declara tudo no 'package.json' e o 'npm install' baixa as versões corretas para a pasta 'node_modules'.
+
+---
+
+## Versões de referência das ferramentas
+
+Valores abaixo são **exemplos** do ambiente em que a suite foi validada e das versões declaradas no `package.json`. em caso de dúvida, use **Node.js LTS** e rode `npm install` na raiz do projeto. Versões exatas instaladas localmente ficam no `package-lock.json`.
+
+| Ferramenta | Versão de referência |
+|------------|----------------------|
+| **Node.js** | v24.14.1 (ex.: `node -v` → `v24.14.x`) |
+| **npm** | 11.11.0 (ex.: `npm -v`; acompanha a instalação do Node) |
+| **Cypress** | ^15.13.0 (`devDependencies`) |
+| **TypeScript** | ^5.3.3 (`devDependencies`) |
+| **@types/node** | ^25.5.0 (`devDependencies`) |
+
+Para conferir no seu computador após instalar o Node:
+
+```bash
+node -v
+npm -v
+```
+
+Para ver a versão do Cypress instalada no projeto:
+
+```bash
+npx cypress --version
+```
 
 ---
 
